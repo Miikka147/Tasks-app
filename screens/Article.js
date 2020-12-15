@@ -1,10 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View,  FlatList,Alert, Image,Linking } from 'react-native';
-import { Button, ListItem,Input} from 'react-native-elements';
+import React from 'react';
+import { StyleSheet, Text, View, Image,Linking } from 'react-native';
+import { Button} from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
-import * as Location from 'expo-location';
-import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import {NavigationContainer} from '@react-navigation/native';
 
 
@@ -21,7 +18,7 @@ export default function Article({ navigation }) {
 
     
           
-      
+      if(article.content !== null){
   return (
     <View style={styles.container}>
         <View style={styles.titlecontainer}>
@@ -52,7 +49,14 @@ export default function Article({ navigation }) {
     </View>
   );
 
-}
+}else{
+  return(
+    <View style={styles.container}>
+      <Text style={styles.error}>Jotain meni pieleen, uutiselta puuttuu sisältö</Text>
+
+    </View>
+  );
+}}
 
 const styles = StyleSheet.create({
   container: {
@@ -101,6 +105,12 @@ const styles = StyleSheet.create({
     borderRadius:15
     
   },
+  error:{
+    color:'#fff',
+    fontSize:17,
+    justifyContent:'center',
+    paddingTop:20
+  }
  
 });
 const colors = {

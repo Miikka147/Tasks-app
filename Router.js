@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer} from "react-navigation";
 import { createMaterialTopTabNavigator} from "react-navigation-tabs";
 import { createStackNavigator} from "react-navigation-stack";
-
 import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import News from "./screens/News";
 import Tasks from "./screens/Tasks";

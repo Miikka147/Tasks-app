@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { Alert, StyleSheet, Text, View, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as Location from 'expo-location';
-import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
+
 
 
 

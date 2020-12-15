@@ -1,25 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View,  FlatList,Alert } from 'react-native';
-import { Button, ListItem,Input} from 'react-native-elements';
+import { ListItem} from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationHelpersContext } from '@react-navigation/native';
-
-
-
-import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
-
-
-
-
 
 
 export default function News({navigation}) {
   const [allnews, setAllnews] = useState([]);
 
-
-    
-          
             const getNews = async () => {
               const url = 'http://newsapi.org/v2/top-headlines?category=general&country=us&apiKey=080194b5c545452f9d03847e1719fced'
               
@@ -36,18 +24,13 @@ export default function News({navigation}) {
              
             useEffect(() => { getNews() }, []);
 
-            if(allnews !== null) {
+  if(allnews !== null) {
   return (
-    
     <View style={styles.container}>
-  
-                  
       <FlatList
           keyExtractor={() => Math.random().toString(36).substr(2, 9)}
           data={allnews}
-          
           renderItem={({item}) =>
-          
             <ListItem 
             onPress={() => navigation.navigate('Article',{article:item})}
             containerStyle={{backgroundColor:"rgba(255,255,255,0.3)",borderRadius:15,marginTop:10}}>
@@ -55,26 +38,15 @@ export default function News({navigation}) {
               <ListItem.Content>
               <ListItem.Title style={styles.titles}>{item.title}</ListItem.Title>
               <ListItem.Subtitle>{item.description}</ListItem.Subtitle>
-              
               </ListItem.Content>
               </View>
-  
-                
             </ListItem>
-            
-        }
-    />
-   
-      
-
- 
-      
+              }/>
     </View>
   );
 }else{
   return(
     <View style={styles.container}>
-
     <Text>Ei haettuja tietoja</Text>
     </View>
   )
